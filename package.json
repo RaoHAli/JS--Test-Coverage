@@ -1,0 +1,36 @@
+{
+  "name": "api-coverage-example",
+  "version": "1.0.0",
+  "description": "Example API with coverage",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "newman run collection.json",
+    "precoverage": "rimraf ./coverage",
+    "coverage": "npm run precoverage && nyc --reporter=html node -e \"const app = require('./app'); const { exec } = require('child_process'); const server = app.listen(3000, () => { const testProcess = exec('npm run test', {stdio: 'inherit'}, (error, stdout, stderr) => { server.close(() => { if (error) { console.error(error); process.exit(1); } process.exit(0); }); }); testProcess.on('error', (error) => { console.error('Error running tests:', error); server.close(() => process.exit(1)); }); });\"",
+    "postcoverage": "start coverage/index.html"
+  },
+  "dependencies": {
+    "api-coverage-example": "file:",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "newman": "^6.2.1",
+    "nyc": "^15.1.0",
+    "open": "^9.1.0",
+    "rimraf": "^5.0.5"
+  },
+  "nyc": {
+    "include": [
+      "app.js"
+    ],
+    "exclude": [
+      "node_modules/**"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "all": true
+  }
+}

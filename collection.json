@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "f8d94b83-95e1-4249-b003-12d594e0a3c5",
+		"name": "API Coverage Example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33602388",
+		"_collection_link": "https://teamaskeddy.postman.co/workspace/Team-Workspace~15df55fb-5d5d-4478-87ee-1f66e4ddd311/collection/33602388-f8d94b83-95e1-4249-b003-12d594e0a3c5?action=share&source=collection_link&creator=33602388"
+	},
+	"item": [
+		{
+			"name": "Greet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/greet/John",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"greet",
+						"John"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sum",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a\": 5,\n    \"b\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/sum",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"sum"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sum with NaN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a\": \"a\",\n    \"b\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/sum",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"sum"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
